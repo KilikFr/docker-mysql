@@ -1,0 +1,22 @@
+version: '2'
+ 
+services:
+    db:
+        build: docker/mysql
+        restart: unless-stopped
+        ports:
+            - ${MYSQL_PORT}:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        volumes:
+            - ./sql:/var/lib/mysql
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        restart: unless-stopped
+        links:
+            - db
+        ports:
+            - ${PHPMYADMIN_PORT}:80
