@@ -18,8 +18,8 @@ cd mysql
 cp .env.dist .env
 # and update variables
 
-docker-compose build
-docker-compose up -d
+make build
+make up
 ```
 
 Access to databases server:
