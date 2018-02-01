@@ -11,8 +11,8 @@ MySQL installation
 
 ```sh
 cd ~/docker
-git clone https://github.com/KilikFr/docker-mysql.git
-cd docker-mysql
+git clone https://github.com/KilikFr/docker-mysql.git mysql
+cd mysql
 
 # setup the .env file
 cp .env.dist .env
